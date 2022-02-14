@@ -1,3 +1,5 @@
+const crypto = require("crypto");
+
 class SiwsMessage {
   constructor({ domain, address, statement }) {
     this.domain = domain;

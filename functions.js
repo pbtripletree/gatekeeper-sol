@@ -3,9 +3,9 @@ const nacl = require("tweetnacl");
 const { TOKEN_PROGRAM_ID } = require("@solana/spl-token");
 const { clusterApiUrl, Connection } = require("@solana/web3.js");
 
-const { Request, Response } = require("../models.js");
+const { Request, Response } = require("./models.js");
 
-const { ResponseMessage } = require("../enums.js");
+const { ResponseMessage } = require("./enums.js");
 
 const getOwnedTokens = async (publicKey) => {
   const MY_WALLET_ADDRESS = publicKey;
