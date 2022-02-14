@@ -27,7 +27,7 @@ const getOwnedTokens = async (publicKey) => {
   return accounts.map((account) => account.account.data.parsed.info.mint);
 };
 
-const authorizeSolana = async ({ request, tokenRoles }) => {
+const authorize = async ({ request, tokenRoles }) => {
   const req = new SiwsMessage(request);
   if (!req.validate())
     return new Response(false, ResponseMessage.INVALID_SIGNATURE, null);
@@ -43,4 +43,4 @@ const authorizeSolana = async ({ request, tokenRoles }) => {
   );
 };
 
-module.exports = { authorizeSolana };
+module.exports = { authorize };
