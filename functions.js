@@ -1,9 +1,9 @@
-const bs58 = require("bs58");
-const nacl = require("tweetnacl");
 const { TOKEN_PROGRAM_ID } = require("@solana/spl-token");
 const { clusterApiUrl, Connection } = require("@solana/web3.js");
 
-const { Request, Response } = require("./models.js");
+const { Response } = require("./models.js");
+
+const { SiwsMessage } = require("./SiwsMessage.js");
 
 const { ResponseMessage } = require("./enums.js");
 
@@ -27,25 +27,11 @@ const getOwnedTokens = async (publicKey) => {
   return accounts.map((account) => account.account.data.parsed.info.mint);
 };
 
-const verifyRequest = (request) => {
-  const messageBytes = new TextEncoder().encode(request.message);
-
-  const publicKeyBytes = bs58.decode(request.publicKey);
-  const signatureBytes = bs58.decode(request.signature);
-
-  const result = nacl.sign.detached.verify(
-    messageBytes,
-    signatureBytes,
-    publicKeyBytes
-  );
-  return result;
-};
-
 const authorizeSolana = async ({ request, tokenRoles }) => {
-  const req = new Request(request);
-  if (!verifyRequest(req))
+  const req = new SiwsMessage(request);
+  if (!req.validate())
     return new Response(false, ResponseMessage.INVALID_SIGNATURE, null);
-  const tokens = await getOwnedTokens(req.publicKey);
+  const tokens = await getOwnedTokens(req.address);
   const roles = tokenRoles.filter((tokenRole) =>
     tokenRole.addresses.find((address) => tokens.includes(address))
   );

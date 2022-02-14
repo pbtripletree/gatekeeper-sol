@@ -1,13 +1,5 @@
 const crypto = require("crypto");
 
-class Request {
-  constructor({ signature, publicKey, message }) {
-    this.signature = signature;
-    this.publicKey = publicKey;
-    this.message = message;
-  }
-}
-
 class Response {
   constructor(success, message, roles = null) {
     this.success = success;
@@ -16,4 +8,4 @@ class Response {
   }
 }
 
-module.exports = { Request, Response };
+module.exports = { Response };
