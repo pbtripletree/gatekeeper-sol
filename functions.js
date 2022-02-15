@@ -29,7 +29,8 @@ const getOwnedTokens = async (publicKey) => {
 
 const decode = (token) => {
   let tokenObject = Buffer.from(token, "base64");
-  return tokenObject.toString("utf8");
+  const message = JSON.parse(tokenObject.toString("utf8"));
+  return new SiwsMessage(message);
 };
 
 const authorize = async ({ request, tokenRoles }) => {
