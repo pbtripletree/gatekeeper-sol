@@ -27,6 +27,10 @@ const getOwnedTokens = async (publicKey) => {
   return accounts.map((account) => account.account.data.parsed.info.mint);
 };
 
+const createToken = (message) => {
+  const token = new SiwsMessage(message);
+};
+
 const authorize = async ({ request, tokenRoles }) => {
   const req = new SiwsMessage(request);
   if (!req.validate())

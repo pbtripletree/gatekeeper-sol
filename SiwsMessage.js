@@ -18,6 +18,12 @@ class SiwsMessage {
     return new TextEncoder().encode(message);
   }
 
+  token(signature) {
+    this.signature = signature;
+    const tokenData = new Buffer.from(JSON.stringify(this));
+    return tokenData.toString("base64");
+  }
+
   validate() {
     const messageBytes = new TextEncoder().encode(this.message);
 
