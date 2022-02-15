@@ -27,8 +27,9 @@ const getOwnedTokens = async (publicKey) => {
   return accounts.map((account) => account.account.data.parsed.info.mint);
 };
 
-const createToken = (message) => {
-  const token = new SiwsMessage(message);
+const decode = (token) => {
+  let tokenObject = Buffer.from(token, "base64");
+  return tokenObject.toString("utf8");
 };
 
 const authorize = async ({ request, tokenRoles }) => {
@@ -47,4 +48,4 @@ const authorize = async ({ request, tokenRoles }) => {
   );
 };
 
-module.exports = { authorize };
+module.exports = { authorize, decode };
