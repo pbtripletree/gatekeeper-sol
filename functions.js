@@ -3,7 +3,7 @@ const { clusterApiUrl, Connection } = require("@solana/web3.js");
 
 const { Response } = require("./models.js");
 
-const { SiwsMessage } = require("./SiwsMessage.js");
+const { SiwsMessage } = require("siws");
 
 const { ResponseMessage } = require("./enums.js");
 
