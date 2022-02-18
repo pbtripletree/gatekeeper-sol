@@ -47,16 +47,16 @@ roles
 
 // roles found
 {
-success: true,
-message: 'roles found',
-roles: [ 'super-fan' ]
+  success: true,
+  message: 'roles found',
+  roles: [ 'super-fan' ]
 }
 
 //no roles found
 {
-success: false,
-message: 'no roles found',
-roles: null
+  success: false,
+  message: 'no roles found',
+  roles: null
 }
 
 ```
