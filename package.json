@@ -1,6 +1,6 @@
 {
   "name": "gatekeeper-sol",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,5 +14,9 @@
     "bs58": "^4.0.1",
     "crypto": "^1.0.1",
     "tweetnacl": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pbtripletree/gatekeeper-sol"
   }
 }
