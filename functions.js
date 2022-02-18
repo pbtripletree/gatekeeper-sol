@@ -24,7 +24,12 @@ const getOwnedTokens = async (publicKey) => {
       },
     ],
   });
-  return accounts.map((account) => account.account.data.parsed.info.mint);
+
+  return accounts
+    .filter(
+      (account) => account.account.data.parsed.info.tokenAmount.amount > 0
+    )
+    .map((account) => account.account.data.parsed.info.mint);
 };
 
 const decode = (token) => {
