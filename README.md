@@ -44,7 +44,6 @@ const authorizeResponse = await authorize({
 #### 3. authorize will return an object with a success status, message, and a list of roles if valid roles are found for the requesting address
 
 ```
-
 // roles found
 {
   success: true,
@@ -58,9 +57,4 @@ const authorizeResponse = await authorize({
   message: 'no roles found',
   roles: null
 }
-
-```
-
-```
-
 ```
