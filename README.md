@@ -16,9 +16,10 @@ const { authorize } = require("gatekeeper-sol");
 
 #### 2. authorize() expects a list of roles and token addresses that assume the role, as well as a decoded SiwsMessage
 
-<br>
+</br>
 <i>authorize() will validate your SiwsMessage, but we suggest you .validate() yourself before incurring a network request</i>
-<br>
+</br>
+
 ```
 const roles = [
   {
@@ -38,7 +39,6 @@ const authorizeResponse = await authorize({
 request: siwsMessage,
 roles
 })
-
 ```
 
 #### 3. authorize will return an object with a success status, message, and a list of roles if valid roles are found for the requesting address
@@ -58,6 +58,8 @@ success: false,
 message: 'no roles found',
 roles: null
 }
+
+```
 
 ```
 
