@@ -36,8 +36,8 @@ const siwsMessage = new SiwsMessage({}).decode(token);
 if (!siwsMessage.validate()) return false
 
 const authorizeResponse = await authorize({
-request: siwsMessage,
-roles
+  request: siwsMessage,
+  roles
 })
 ```
 
